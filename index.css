@@ -16,6 +16,17 @@ video {
   top: 0;
   left: 0;
 }
+
+.text{
+	padding-top: 100px;
+	font: bold 30px sans-serif;
+	text-align: right;
+	color: white;
+
+    visibility: visible;
+		animation-delay: 17s;
+    animation:fadeOut ease 10s;
+}
 .circle {
 		  animation: circle 6s ease-out infinite;
 		  border-radius: 50%;
@@ -25,6 +36,8 @@ video {
 		  left: 50%;
 		  width: 425px;
 		  height: 425px;
+		  animation-delay: 25s;
+
 		}
 
 		.circle:nth-child(1) {
@@ -66,7 +79,7 @@ video {
 
 	box-shadow: 10px 0 5px -2px #888;
 	animation: spin 4s infinite, ring 10s ease ;
-	animation-delay: fadeOut 13s;
+	animation-delay:13s;
 }
 .ring:nth-child(1) {
   top: 40px;
@@ -167,8 +180,10 @@ video {
   to  {opacity: 0.5;}
 
 }
-@keyframes identifier {
-
+@keyframes hello {
+to {
+	opacity: 1;
+}
 }
 @keyframes spin {
   100% { transform: rotate(360deg); }
