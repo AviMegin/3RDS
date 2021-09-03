@@ -1,0 +1,175 @@
+
+html, body {
+
+	height: 100%;
+	overflow: hidden;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   font-size: 150%;
+	 margin: auto;
+   line-height: 1.4;}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.circle {
+		  animation: circle 6s ease-out infinite;
+		  border-radius: 50%;
+			opacity: 0;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  width: 425px;
+		  height: 425px;
+		}
+
+		.circle:nth-child(1) {
+		  background:  #ffe6e6;
+		}
+
+		.circle:nth-child(2) {
+		  animation-delay: 2s;
+		  background: #e60000;
+		}
+
+		.circle:nth-child(3) {
+		  animation-delay: 4s;
+		  background: #990000;
+		}
+
+		@keyframes circle {
+		  10% {
+		    transform: scale(1);
+		  }
+		  50% {
+		    transform: scale(2);
+		  }
+		}
+.container {
+  position: absolute;
+  right: 60%;
+}
+.ring {
+  width: 120px;
+  height:120px;
+  position: absolute;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 50%;
+	opacity: 0;
+	background-color: white;
+  border: 2px solid white;
+
+	box-shadow: 10px 0 5px -2px #888;
+	animation: spin 4s infinite, ring 10s ease ;
+	animation-delay: fadeOut 13s;
+}
+.ring:nth-child(1) {
+  top: 40px;
+  left: 100px;
+
+}
+.ring:nth-child(2) {
+  top: 140px;
+  left: 100px;
+}
+.ring:nth-child(3) {
+  top: 90px;
+  left: 150px;
+}
+.ring:nth-child(4) {
+  top: 90px;
+  left: 50px;
+}
+.ring:nth-child(5) {
+  top: 55px;
+  left: 65px;
+}
+.ring:nth-child(6) {
+  top: 125px;
+  left: 135px;
+}
+.ring:nth-child(7) {
+  top: 125px;
+  left: 65px;
+}
+.ring:nth-child(8) {
+  top: 55px;
+  left: 135px;
+}
+.wave,
+.wave::before,
+.wave::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250vw;
+  height: 250vw;
+  margin-left: -125vw;
+  transform-origin: 50% 50%;
+  background-color: transparent;
+  border-radius: 38% 42%;
+  box-shadow: inset 0 0 10vw rgba(0,255,0,0.9);
+  animation: spin 16s infinite linear;
+  mix-blend-mode: multiply;
+}
+
+.wave::before {
+  width: 105%;
+  height: 95%;
+  margin-top: -125vw;
+  transform-origin: 49% 51%;
+  border-radius: 40% 38%;
+  box-shadow: inset 0 0 10vw rgba(255,255,0,0.8);
+  animation: spin 13s infinite linear;
+}
+
+.wave::after {
+  width: 102%;
+  height: 98%;
+  margin-top: -125vw;
+  transform-origin: 51% 49%;
+  border-radius: 48% 42%;
+  box-shadow: inset 0 0 10vw rgba(0,255,255,0.8);
+  animation: spin 10s infinite linear;
+}
+
+.animated {
+	padding-top: 20%;
+	font: bold 100px sans-serif;
+	text-align: center;
+	color: white;
+
+    visibility: visible;
+    animation:  test 10s,fadeOut ease 10s, cssAnimation 0s 10s forwards;
+}
+
+@keyframes test {
+    100% {letter-spacing: 70px;}
+}
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+@keyframes cssAnimation {
+  to   { visibility: hidden; }
+}
+@keyframes ring {
+  to  {opacity: 0.5;}
+
+}
+@keyframes identifier {
+
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
