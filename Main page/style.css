@@ -1,0 +1,97 @@
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+	 margin: auto;
+   background-color: #cbc0ad;
+   line-height: 1.4;
+ }
+
+@font-face {
+   font-family: myFirstFont;
+   src: url(Saudagar0.ttf);
+}
+
+@font-face {
+   font-family: myFirstFont;
+   src: url(Saudagar0.ttf);
+   font-weight: bold;
+}
+
+* {
+   font-family: myFirstFont;
+}
+@keyframes ring {
+  to  {opacity: 0.5;}
+
+}
+@keyframes hello {
+to {
+	opacity: 1;
+}
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.container {
+  display: block;
+  position: fixed;
+  right: 60%;
+	top: 20%;
+  height: 100%;
+}
+
+.beneath{
+  top: 50%;
+  position: fixed;
+  right: 50%;
+  align-content: center;
+}
+.ring {
+  width: 120px;
+  height:120px;
+  position: absolute;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 50%;
+	opacity: 0.5;
+	background-color: white;
+  border: 2px solid white;
+	box-shadow: 10px 0 5px -2px #888;
+	animation: spin 4s infinite;
+
+}
+.ring:nth-child(1) {
+  top: 40px;
+  left: 100px;
+
+}
+.ring:nth-child(2) {
+  top: 140px;
+  left: 100px;
+}
+.ring:nth-child(3) {
+  top: 90px;
+  left: 150px;
+}
+.ring:nth-child(4) {
+  top: 90px;
+  left: 50px;
+}
+.ring:nth-child(5) {
+  top: 55px;
+  left: 65px;
+}
+.ring:nth-child(6) {
+  top: 125px;
+  left: 135px;
+}
+.ring:nth-child(7) {
+  top: 125px;
+  left: 65px;
+}
+.ring:nth-child(8) {
+  top: 55px;
+  left: 135px;
+}

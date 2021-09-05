@@ -3,8 +3,6 @@ html, body {
 
 	height: 100%;
 	overflow: hidden;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-   font-size: 150%;
 	 margin: auto;
    line-height: 1.4;}
 
@@ -16,19 +14,72 @@ video {
   top: 0;
   left: 0;
 }
+@font-face {
+   font-family: myFirstFont;
+   src: url(Saudagar.ttf);
+}
 
+@font-face {
+   font-family: myFirstFont;
+   src: url(Saudagar.ttf);
+   font-weight: bold;
+}
+
+* {
+   font-family: myFirstFont;
+}
+.play{
+align-items: center;
+position: fixed;
+margin: auto;
+width: 100%;
+height: 100%;
+top: 25%;
+left: 35%;
+float: left;
+}
+a{
+	font-size: 27px;
+}
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 74px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+	cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #6ba4d2;
+	outline: 10px;
+	outline-color: black;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #4d4f56;
+}
+
+.button:hover {background-color: #4a7394}
+
+.button:active {
+  background-color: #5a8db7;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.intro{
+	display: none;
+}
 .text{
 	padding-top: 100px;
 	font: bold 30px sans-serif;
 	text-align: right;
 	color: white;
-
-    visibility: visible;
+	opacity: 0;
 		animation-delay: 17s;
-    animation:fadeOut ease 10s;
+    animation:hello ease 10s;
 }
 .circle {
-		  animation: circle 6s ease-out infinite;
+
 		  border-radius: 50%;
 			opacity: 0;
 		  position: absolute;
@@ -36,7 +87,8 @@ video {
 		  left: 50%;
 		  width: 425px;
 		  height: 425px;
-		  animation-delay: 25s;
+		  animation-delay: 26s;
+			 animation: circle 6s ease-out infinite;
 
 		}
 
@@ -63,8 +115,9 @@ video {
 		  }
 		}
 .container {
-  position: absolute;
+  position: fixed;
   right: 60%;
+	top: 20%
 }
 .ring {
   width: 120px;
@@ -76,10 +129,9 @@ video {
 	opacity: 0;
 	background-color: white;
   border: 2px solid white;
-
 	box-shadow: 10px 0 5px -2px #888;
 	animation: spin 4s infinite, ring 10s ease ;
-	animation-delay:13s;
+	animation-delay:7s;
 }
 .ring:nth-child(1) {
   top: 40px;
