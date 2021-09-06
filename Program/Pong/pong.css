@@ -1,0 +1,18 @@
+body {
+    align-items: center;
+overflow: hidden;
+    display: flex;
+    margin: 0;
+}
+canvas {
+    border: solid 1px #fff;
+    border-left: none;
+    background-color: black;
+    border-right: none;
+    image-rendering: pixelated;
+    width: 100%;
+}
+.bar{
+  -webkit-box-shadow: 5px 1px 10px 2px pink;
+box-shadow: 5px 1px 10px 2px #000000;
+}

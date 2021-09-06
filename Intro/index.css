@@ -24,7 +24,15 @@ video {
    src: url(Saudagar.ttf);
    font-weight: bold;
 }
-
+.star{
+	border-radius: 50%;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 25px;
+	height: 25px;
+}
 * {
    font-family: myFirstFont;
 }
@@ -87,8 +95,8 @@ a{
 		  left: 50%;
 		  width: 425px;
 		  height: 425px;
-		  animation-delay: 26s;
-			 animation: circle 6s ease-out infinite;
+		  animation-delay: 20s;
+			 animation: circle 6s, hello 3s;
 
 		}
 
@@ -239,4 +247,12 @@ to {
 }
 @keyframes spin {
   100% { transform: rotate(360deg); }
+}
+@keyframes shine {
+    0% {
+        transform: translatex(0px) translatey(0px)
+    }
+    100% {
+        transform: translatex(100px) translatey(100px);
+    }
 }
