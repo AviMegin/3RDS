@@ -86,17 +86,20 @@ a{
 		animation-delay: 17s;
     animation:hello ease 10s;
 }
+.vis{
+	opacity: 0;
+}
 .circle {
 
 		  border-radius: 50%;
-			opacity: 0;
+
 		  position: absolute;
 		  top: 50%;
 		  left: 50%;
 		  width: 425px;
 		  height: 425px;
 		  animation-delay: 20s;
-			 animation: circle 6s, hello 3s;
+			 animation: circle 6s;
 
 		}
 
@@ -220,6 +223,10 @@ a{
 
     visibility: visible;
     animation:  test 10s,fadeOut ease 10s, cssAnimation 0s 10s forwards;
+}
+.animated .delay{
+	animation-delay: 22s;
+
 }
 
 @keyframes test {

@@ -10,7 +10,11 @@ canvas {
     background-color: black;
     border-right: none;
     image-rendering: pixelated;
-    width: 100%;
+    align-self: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .bar{
   -webkit-box-shadow: 5px 1px 10px 2px pink;
