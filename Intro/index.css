@@ -79,12 +79,16 @@ a{
 }
 .text{
 	padding-top: 100px;
-	font: bold 30px sans-serif;
+	font: bold 60px sans-serif;
 	text-align: right;
 	color: white;
 	opacity: 0;
-		animation-delay: 17s;
-    animation:hello ease 10s;
+	position: fixed;
+	bottom: 50%;
+	left: 35%;
+
+    animation:hello ease 10s, test 10s;
+animation-delay: 17s;
 }
 .vis{
 	opacity: 0;

@@ -2,7 +2,7 @@
 
 
 var audioObj = new Audio('music.mp3');
-audioObj.volume = 0.5;
+audioObj.volume = 0.2;
 
 
 

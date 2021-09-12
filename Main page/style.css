@@ -22,18 +22,21 @@ html, body {
    src: url(Saudagar0.ttf);
    font-weight: bold;
 }
+.mobile{
+	visibility: hidden;
+}
 #menu {
-bottom: 0;
+top: 0;
 position: fixed;
 background: #e0e0e0;
 
-	color: #FFF;
+	color: #555;
 	height: 65px;
 	padding-left: 18px;
 	margin-left: auto;
   margin-right: auto;
   display: block;
-	left: 32%;
+	left: 33%;
 
 }
 #menu ul, #menu li {
@@ -54,7 +57,7 @@ background: #e0e0e0;
 	line-height: 65px;
 	padding: 0 14px;
 	text-decoration: none;
-	color: #FFFFFF;
+	color: #555;
 	font-size: 20px;
 }
 #menu a.dropdown-arrow:after {
@@ -137,7 +140,32 @@ to {
 @keyframes spin {
   100% { transform: rotate(360deg); }
 }
+.type {
+  height: 60vh;
+  /*This part is important for centering*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+	top: 60%;
+	align-content: flex-start;
+	align-items: flex-end;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+	top: 70%;
+}
+
 .bar{
+	width: 100px;
+	height: 50px;
 background: linear-gradient(90deg, #ff0000 0%, #ec5508 14%, #f7f108 27%, #4bb72b 40%, rgba(29, 171, 210, 0.57) 56%, #c119ca 77%, #fff 90%);
 }
 .container {
@@ -206,5 +234,34 @@ background: linear-gradient(90deg, #ff0000 0%, #ec5508 14%, #f7f108 27%, #4bb72b
   .ring {
     visibility: hidden;
 
+  }
+	.type{
+		visibility: hidden;
+	}
+	#menu {
+		left: 0;
+	top: 0;
+	background: #e0e0e0;
+		color: #555;
+		height: 65px;
+		display:block;
+		position: fixed;
+	}
+	.mobile{
+		visibility: visible;
+	}
+	p{
+		display: block;
+	}
+}
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
   }
 }
