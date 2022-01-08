@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="leaderboard.css">
+
+
+</head>
+
+<body>
+
+
+    <div class="bg"></div>
+    <table class="table center">
+        <tr class="content">
+            <th data-column="rank" data-order="desc">Rank &#9650</th>
+            <th data-column="name" data-order="desc">Name &#9650</th>
+            <th data-column="points" data-order="desc">Points &#9650</th>
+        </tr>
+
+        <tbody id="myTable">
+
+        </tbody>
+    </table>
+
+    <script>
+        var myArray = [{
+            "name": "Mickey Mouse",
+            "points": 10
+        }, {
+            "name": "Donald Duck",
+            "points": 34
+        }, {
+            "name": "Rick Roll",
+            "points": 15
+        }, {
+            "name": "Winnie the Pooh",
+            "points": 32
+        }, {
+            "name": "Harley Quinn",
+            "points": 13
+        }, {
+            "name": "Johnny Bravo",
+            "points": 7
+        }, {
+            "name": "Cristiano Ronaldo",
+            "points": 64
+        }, {
+            "name": "Weighted Companion Cube",
+            "points": 115
+        }, {
+            "name": "The Huddle",
+            "points": 34
+        }, {
+            "name": "Peter Pan",
+            "points": 29
+        }, {
+            "name": "Dirk Gentley",
+            "points": 28
+        }, {
+            "name": "Arthur Ford",
+            "points": 61
+        }, {
+            "name": "Towelie",
+            "points": 111
+        }, {
+            "name": "Eric Cartman",
+            "points": 35
+        }, {
+            "name": "Peter Griffith",
+            "points": 89
+        }, {
+            "name": "Stewie Griffith",
+            "points": 5
+        }, {
+            "name": "Invader Zim",
+            "points": 39
+        }, {
+            "name": "Girrrrr",
+            "points": 48
+        }, {
+            "name": "Woody",
+            "points": 44
+        }, {
+            "name": "Todd Sweeney",
+            "points": 26
+        }]
+
+        $('th').on('click', function() {
+            var column = $(this).data('column')
+            var order = $(this).data('order')
+            var text = $(this).html()
+            text = text.substring(0, text.length - 1)
+
+            if (order == 'desc') {
+                $(this).data('order', "asc")
+                myArray = myArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
+                text += '&#9660'
+
+            } else {
+                $(this).data('order', "desc")
+                myArray = myArray.sort((a, b) => a[column] < b[column] ? 1 : -1)
+                text += '&#9650'
+
+            }
+            $(this).html(text)
+            buildTable(myArray)
+        })
+
+        buildTable(myArray)
+
+        function buildTable(data) {
+            var table = document.getElementById('myTable')
+            table.innerHTML = ''
+            for (var i = 0; i < data.length; i++) {
+                var row = `<tr>
+                                    <td></td>
+                                    <td>${data[i].name}</td>
+                                    <td>${data[i].points}</td>
+                              </tr>`
+                table.innerHTML += row
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>
