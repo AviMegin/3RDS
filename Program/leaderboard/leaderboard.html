@@ -13,21 +13,22 @@
 </head>
 
 <body>
+    <div class="every">
 
-    <input id="search-input" class="search" type="text">
+        <input id="search-input" class="search" type="text">
 
-    <table class="table center">
-        <tr class="content">
-            <th data-column="rank" data-order="desc">Rank &#9650</th>
-            <th data-column="name" data-order="desc">Name &#9650</th>
-            <th data-column="points" data-order="desc">Points &#9650</th>
-        </tr>
+        <table class="table">
+            <tr class="content">
+                <th data-column="rank" data-order="desc">Rank &#9650</th>
+                <th data-column="name" data-order="desc">Name &#9650</th>
+                <th data-column="points" data-order="desc">Points &#9650</th>
+            </tr>
 
-        <tbody id="myTable">
+            <tbody id="myTable">
 
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
     <script>
         var myArray = [{
                 "name": "Mickey Mouse",
@@ -117,10 +118,29 @@
         $('#search-input').on('keyup', function() {
             var value = $(this).val()
             console.log(value) //console logging everything in input
+
+            var data = searchTable(value, myArray)
+
+
+
+            buildTable(data)
         })
 
 
+        function searchTable(value, data) {
+            var filterData = []
+            for (var i = 0; i < data.length; i++) {
+                value = value.toLowerCase() //so search doesnt filter on caps
+                var name = data[i].name.toLowerCase()
+                if (name.includes(value)) {
+                    filterData.push(data[i])
 
+                }
+
+            }
+
+            return filterData
+        }
 
 
         buildTable(myArray)
