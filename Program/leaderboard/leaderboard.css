@@ -11,6 +11,8 @@ body {
 }
 
 .search {
+    margin: 2px;
+    border: none;
     height: 30px;
     width: 10%;
     justify-content: center;
@@ -20,6 +22,11 @@ body {
 
 .search:hover {
     background-color: aliceblue;
+}
+
+.search:focus {
+    background-color: aliceblue;
+    outline: none;
 }
 
 .table {
