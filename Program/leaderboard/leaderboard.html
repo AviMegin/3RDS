@@ -9,27 +9,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="leaderboard.css">
 
-
 </head>
 
 <body>
-    <div class="every">
+    <h1>The Cloud Leaderboard</h1>
 
-        <input id="search-input" class="search" type="text">
+    <div> <input id="search-input" class="search" type="text" placeholder="Search..."></div>
+    <table class="table">
 
-        <table class="table">
-            <tr class="content">
-                <th data-column="rank" data-order="desc">Rank &#9650</th>
-                <th data-column="name" data-order="desc">Name &#9650</th>
-                <th data-column="points" data-order="desc">Points &#9650</th>
-            </tr>
+        <tr class="content">
+            <th data-column="rank" data-order="desc">Rank &#9650</th>
+            <th data-column="name" data-order="desc">Name &#9650</th>
+            <th data-column="points" data-order="desc">Points &#9650</th>
+        </tr>
 
-            <tbody id="myTable">
+        <tbody id="myTable">
 
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+
     <script>
+        //le data
         var myArray = [{
                 "name": "Mickey Mouse",
                 "points": 10
@@ -113,19 +113,19 @@
             buildTable(myArray)
         })
 
-
+        //search bar
 
         $('#search-input').on('keyup', function() {
-            var value = $(this).val()
-            console.log(value) //console logging everything in input
+                var value = $(this).val()
+                console.log(value) //console logging everything in input
 
-            var data = searchTable(value, myArray)
+                var data = searchTable(value, myArray)
 
 
 
-            buildTable(data)
-        })
-
+                buildTable(data)
+            })
+            //search function
 
         function searchTable(value, data) {
             var filterData = []

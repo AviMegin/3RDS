@@ -1,25 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@200;500&display=swap');
+html,
 body {
+    justify-content: center;
+    margin-top: 2%;
+    margin-left: 15%;
+    width: 100%;
+    height: 100%;
     font-family: 'Noto Sans Display', sans-serif;
     background-image: url(tumblr_o2o3n77pph1uwbvw1o1_400.gif);
 }
 
-.table {
-    border: 2px white;
-    background-color: #fff;
+.search {
+    height: 30px;
+    width: 10%;
+    justify-content: center;
     border-radius: 10px;
+    transition: .5s;
+}
+
+.search:hover {
+    background-color: aliceblue;
+}
+
+.table {
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 20px;
     padding: 20px;
 }
 
-.table {
-    color: black;
-}
-
 th {
+    text-align: left;
     cursor: pointer;
 }
 
-.center {
-    text-align: center;
-    line-height: 30px;
+tr {
+    border-radius: 10px;
+}
+
+td {
+    cursor: default;
+    transition: 1s;
+}
+
+td:hover {
+    background-color: rgb(200, 230, 255);
 }
