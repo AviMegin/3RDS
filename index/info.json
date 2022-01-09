@@ -1,0 +1,41 @@
+[{
+    "name": "Chatbot",
+    "info": "Made with PHP and MySql, check out my first chatbot!",
+    "link": "https://arcadescape.000webhostapp.com/bot.php",
+    "origin": {
+        "name": "Chat",
+        "url": "images/cahtbot.png"
+    }
+}, {
+    "name": "L'Oreal Royale",
+    "info": 10,
+    "link": "https://i430712.hera.fhict.nl/PHP",
+    "origin": {
+        "name": "Chat",
+        "url": "images/cahtbot.png"
+    }
+}, {
+    "name": "Rick Roll",
+    "info": 10,
+    "link": 1,
+    "origin": {
+        "name": "Chat",
+        "url": "images/cahtbot.png"
+    }
+}, {
+    "name": "Winnie the Pooh",
+    "info": 10,
+    "link": 1,
+    "origin": {
+        "name": "Chat",
+        "url": "images/cahtbot.png"
+    }
+}, {
+    "name": "Harley Quinn",
+    "info": 10,
+    "link": 1,
+    "origin": {
+        "name": "Chat",
+        "url": "images/cahtbot.png"
+    }
+}]
