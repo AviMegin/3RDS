@@ -10,6 +10,32 @@ body {
     background-image: url(tumblr_o2o3n77pph1uwbvw1o1_400.gif);
 }
 
+.hidden {
+    display: none;
+}
+
+.delete {
+    cursor: pointer;
+    background: rgb(228, 86, 86);
+    border-radius: 10px;
+    border: none;
+}
+
+.delete:hover {
+    background: rgb(218, 61, 61);
+}
+
+.Edit {
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(146, 221, 146);
+}
+
+.Edit:hover {
+    background-color: rgb(102, 197, 102);
+}
+
 .search {
     margin: 2px;
     border: none;

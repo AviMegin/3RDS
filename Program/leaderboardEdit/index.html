@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../leaderboard/leaderboard.css">
+    <title>Leaderboard</title>
+</head>
+
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        .result {
+            max-width: 80px;
+        }
+    </style>
+
+    <div class="row">
+
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card card-body">
+
+                <!-- Form Wrapper & Button -->
+                <button class="Edit" id="add-test">Add Person</button>
+                <div class="form-wrapper hidden">
+
+                    <input class="form-control" type="text" id="test-name" placeholder="Name...">
+
+                    <input class="form-control" type="text" id="test-result" placeholder="Points...">
+                    <button class="Edit" id="create-test">Add</button>
+                </div>
+
+                <!-- Data Table -->
+                <table class="table table-dark">
+
+                    <div> <input id="search-input" class="search" type="text" placeholder="Search..."></div>
+                    <thead>
+                        <tr>
+                            <th data-column="name" data-order="desc" scope="col">Name &#9650</th>
+                            <th data-column="points" data-order="desc" scope="col">Points &#9650</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="tests-table">
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+
+    <script>
+        var newId = 4
+        var newTest = {
+            'name': null,
+            'id': newId,
+            'result': null
+        }
+
+        $('#add-test').on('click', function() {
+            $('.form-wrapper').removeClass('hidden')
+        })
+
+
+        $('#test-result').on('keyup', function() {
+            newTest.result = $(this).val()
+            console.log(newTest)
+
+        })
+
+        $('#test-name').on('change', function() {
+            newTest.name = $(this).val()
+            console.log(newTest)
+        })
+
+        $('#create-test').on('click', function() {
+            if (newTest.name == null) {
+                alert('No test selected!')
+            } else {
+                addRow(newTest)
+                $('#test-name').val('')
+                $('#test-result').val('')
+                $('.form-wrapper').addClass('hidden')
+            }
+        })
+
+
+        var tests = [{
+            "name": "Mickey Mouse",
+            "points": 10,
+            "id": 1
+        }, {
+            "name": "Donald Duck",
+            "points": 34,
+            "id": 2
+        }, {
+            "name": "Rick Roll",
+            "points": 15,
+            "id": 3
+        }, {
+            "name": "Winnie the Pooh",
+            "points": 32,
+            "id": 4
+        }, {
+            "name": "Harley Quinn",
+            "points": 13,
+            "id": 5
+        }, {
+            "name": "Johnny Bravo",
+            "points": 7,
+            "id": 6
+        }, {
+            "name": "Cristiano Ronaldo",
+            "points": 64,
+            "id": 7
+        }, {
+            "name": "Weighted Companion Cube",
+            "points": 115,
+            "id": 8
+        }, {
+            "name": "The Huddle",
+            "points": 34,
+            "id": 9
+        }, {
+            "name": "Peter Pan",
+            "points": 29,
+            "id": 10
+        }, {
+            "name": "Dirk Gentley",
+            "points": 28,
+            "id": 11
+        }, {
+            "name": "Arthur Ford",
+            "points": 61,
+            "id": 12
+        }, {
+            "name": "Towelie",
+            "points": 111,
+            "id": 13
+        }, {
+            "name": "Eric Cartman",
+            "points": 35,
+            "id": 14
+        }, {
+            "name": "Peter Griffith",
+            "points": 89,
+            "id": 15
+        }, {
+            "name": "Stewie Griffith",
+            "points": 5,
+            "id": 16
+        }, {
+            "name": "Invader Zim",
+            "points": 39,
+            "id": 17
+        }, {
+            "name": "Girrrrr",
+            "points": 48,
+            "id": 18
+        }, {
+            "name": "Woody",
+            "points": 44,
+            "id": 19
+        }, {
+            "name": "Todd Sweeney",
+            "points": 26,
+            "id": 20
+        }]
+        $('th').on('click', function() {
+            var column = $(this).data('column')
+            var order = $(this).data('order')
+            var text = $(this).html()
+            text = text.substring(0, text.length - 1)
+
+            if (order == 'desc') {
+                $(this).data('order', "asc")
+                tests = tests.sort((a, b) => a[column] > b[column] ? 1 : -1)
+                text += '&#9660'
+
+            } else {
+                $(this).data('order', "desc")
+                tests = tests.sort((a, b) => a[column] < b[column] ? 1 : -1)
+                text += '&#9650'
+
+            }
+            $(this).html(text)
+
+        })
+
+        $('#search-input').on('keyup', function() {
+                var value = $(this).val()
+                console.log(value) //console logging everything in input
+
+                var data = searchTable(value, myArray)
+
+
+
+                buildTable(data)
+            })
+            //search function
+
+        function searchTable(value, data) {
+            var filterData = []
+            for (var i = 0; i < data.length; i++) {
+                value = value.toLowerCase() //so search doesnt filter on caps
+                var name = data[i].name.toLowerCase()
+                if (name.includes(value)) {
+                    filterData.push(data[i])
+
+                }
+
+            }
+
+            return filterData
+        }
+
+
+        for (var i in tests) {
+            addRow(tests[i])
+        }
+
+        function addRow(obj) {
+            var row = `<tr scope="row" class="test-row-${obj.id}">
+                <td id="result-${obj.id}" data-testid="${obj.id}"">${obj.name}</td>
+                           <td id="result-${obj.id}" data-testid="${obj.id}"">${obj.points}</td>
+                           <td>
+                                   <button class="delete" data-testid=${obj.id} id="delete-${obj.id}">Delete</button>
+                                   <button class="Edit" disabled data-testid="${obj.id}"  id="save-${obj.id}">Save</button>
+                                   
+                                   <button class="delete hidden" data-testid="${obj.id}"  id="cancel-${obj.id}">Cancel</button>
+                                   <button class="Edit hidden" data-testid="${obj.id}"  id="confirm-${obj.id}">Confirm</button>
+                                   
+                           </td>
+                       </tr>`
+            $('#tests-table').append(row)
+
+            $(`#delete-${obj.id}`).on('click', deleteTest)
+            $(`#cancel-${obj.id}`).on('click', cancelDeletion)
+            $(`#confirm-${obj.id}`).on('click', confirmDeletion)
+            $(`#save-${obj.id}`).on('click', saveUpdate)
+
+
+            $(`#result-${obj.id}`).on('click', editResult)
+
+        }
+
+        function editResult() {
+            var testid = $(this).data('testid')
+            var value = $(this).html()
+
+            $(this).unbind()
+            $(this).html(`<input class="result form-control" data-testid="${testid}" type="text" value="${value}">`)
+
+            $(`.result`).on('keyup', function() {
+                var testid = $(this).data('testid')
+                var saveBtn = $(`#save-${testid}`)
+                saveBtn.prop('disabled', false)
+
+            })
+
+        }
+
+        function saveUpdate() {
+            console.log('Saved!')
+            var testid = $(this).data('testid')
+            var saveBtn = $(`#save-${testid}`)
+            var row = $(`.test-row-${testid}`)
+
+            saveBtn.prop('disabled', true)
+            row.css('opacity', "0.5")
+
+            setTimeout(function() {
+                row.css('opacity', '1')
+            }, 2000)
+
+
+        }
+
+
+        function deleteTest() {
+            var testid = $(this).data('testid')
+
+            var deleteBtn = $(`#delete-${testid}`)
+            var saveBtn = $(`#save-${testid}`)
+            var cancelBtn = $(`#cancel-${testid}`)
+            var confirmBtn = $(`#confirm-${testid}`)
+
+            deleteBtn.addClass('hidden')
+            saveBtn.addClass('hidden')
+
+            cancelBtn.removeClass('hidden')
+            confirmBtn.removeClass('hidden')
+        }
+
+        function cancelDeletion() {
+            var testid = $(this).data('testid')
+
+            var deleteBtn = $(`#delete-${testid}`)
+            var saveBtn = $(`#save-${testid}`)
+            var cancelBtn = $(`#cancel-${testid}`)
+            var confirmBtn = $(`#confirm-${testid}`)
+
+            deleteBtn.removeClass('hidden')
+            saveBtn.removeClass('hidden')
+
+            cancelBtn.addClass('hidden')
+            confirmBtn.addClass('hidden')
+
+        }
+
+        function confirmDeletion() {
+            var testid = $(this).data('testid')
+            var row = $(`.test-row-${testid}`)
+            row.remove()
+
+        }
+    </script>
+</body>
+
+</html>
