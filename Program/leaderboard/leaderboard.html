@@ -63,7 +63,10 @@
                 if (newTest.name == null) {
                     alert('no input')
                 } else {
-                    buildTable(newTest)
+                    myArray.push({
+                        newTest
+                    });
+                    console.log(newTest)
                     $('#test-name').val('')
                     $('#test-result').val('')
                     $('.form-wrapper').addClass('hidden')
@@ -71,88 +74,67 @@
             })
             //le data
         var myArray = [{
-            "name": "Mickey Mouse",
-            "points": 10,
-            "id": 1
-        }, {
-            "name": "Donald Duck",
-            "points": 34,
-            "id": 2
-        }, {
-            "name": "Rick Roll",
-            "points": 15,
-            "id": 3
-        }, {
-            "name": "Winnie the Pooh",
-            "points": 32,
-            "id": 4
-        }, {
-            "name": "Harley Quinn",
-            "points": 13,
-            "id": 5
-        }, {
-            "name": "Johnny Bravo",
-            "points": 7,
-            "id": 6
-        }, {
-            "name": "Cristiano Ronaldo",
-            "points": 64,
-            "id": 7
-        }, {
-            "name": "Weighted Companion Cube",
-            "points": 115,
-            "id": 8
-        }, {
-            "name": "The Huddle",
-            "points": 34,
-            "id": 9
-        }, {
-            "name": "Peter Pan",
-            "points": 29,
-            "id": 10
-        }, {
-            "name": "Dirk Gentley",
-            "points": 28,
-            "id": 11
-        }, {
-            "name": "Arthur Ford",
-            "points": 61,
-            "id": 12
-        }, {
-            "name": "Towelie",
-            "points": 111,
-            "id": 13
-        }, {
-            "name": "Eric Cartman",
-            "points": 35,
-            "id": 14
-        }, {
-            "name": "Peter Griffith",
-            "points": 89,
-            "id": 15
-        }, {
-            "name": "Stewie Griffith",
-            "points": 5,
-            "id": 16
-        }, {
-            "name": "Invader Zim",
-            "points": 39,
-            "id": 17
-        }, {
-            "name": "Girrrrr",
-            "points": 48,
-            "id": 18
-        }, {
-            "name": "Woody",
-            "points": 44,
-            "id": 19
-        }, {
-            "name": "Todd Sweeney",
-            "points": 26,
-            "id": 20
-        }]
-
-        //order by desc or asc event click
+                "name": "Mickey Mouse",
+                "points": 10
+            }, {
+                "name": "Donald Duck",
+                "points": 34
+            }, {
+                "name": "Rick Roll",
+                "points": 15
+            }, {
+                "name": "Winnie the Pooh",
+                "points": 32
+            }, {
+                "name": "Harley Quinn",
+                "points": 13
+            }, {
+                "name": "Johnny Bravo",
+                "points": 7
+            }, {
+                "name": "Cristiano Ronaldo",
+                "points": 64
+            }, {
+                "name": "Weighted Companion Cube",
+                "points": 115
+            }, {
+                "name": "The Huddle",
+                "points": 34
+            }, {
+                "name": "Peter Pan",
+                "points": 29
+            }, {
+                "name": "Dirk Gentley",
+                "points": 28
+            }, {
+                "name": "Arthur Ford",
+                "points": 61
+            }, {
+                "name": "Towelie",
+                "points": 111
+            }, {
+                "name": "Eric Cartman",
+                "points": 35
+            }, {
+                "name": "Peter Griffith",
+                "points": 89
+            }, {
+                "name": "Stewie Griffith",
+                "points": 5
+            }, {
+                "name": "Invader Zim",
+                "points": 39
+            }, {
+                "name": "Girrrrr",
+                "points": 48
+            }, {
+                "name": "Woody",
+                "points": 44
+            }, {
+                "name": "Todd Sweeney",
+                "points": 26
+            }]
+            //order by desc or asc event click
         $('th').on('click', function() {
             var column = $(this).data('column')
             var order = $(this).data('order')
@@ -212,13 +194,13 @@
             var counter = 1;
             table.innerHTML = ''
             for (var i = 0; i < data.length; i++) {
-                var row = `<tr scope="row" class="test-row-${data[i].id}">
+                var row = `<tr class="row-${counter}" id="row">
                                     <td>${counter}</td>
                                     <td>${data[i].name}</td>
                                     <td>${data[i].points}</td>
                                     <td>
-                                        <button onclick="deleteTest()"class="delete" data-testid="${data[i].id}" id="delete-${data[i].id}">Delete</button>
-                                        <button class="Edit" data-testid="${data[i].id}"  id="edit-${data[i].id}">Edit</button>
+                                        <button onclick="deleteTest(${counter})" class="delete">Delete</button>
+                                        <button onclick="deleteTest(${counter})" class="Edit">Edit</button>
                                         
                                         </td>
                               </tr>`
@@ -235,13 +217,14 @@
         }
 
         function edit() {
+            var row = number
+            console.log(row);
 
         }
 
-        function deleteTest() {
-            var row = $(`.test-row-${data[i].id}`)
-            row.remove()
-            console.log(testid);
+        function deleteTest(number) {
+            var row = number
+            console.log(row);
         }
     </script>
 </body>
