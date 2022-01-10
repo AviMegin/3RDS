@@ -23,9 +23,9 @@
         "url": "images/cahtbot.png"
     }
 }, {
-    "name": "Winnie the Pooh",
+    "name": "Snake game",
     "info": 10,
-    "link": 1,
+    "link": "https://i430712.hera.fhict.nl/Program/SnakeGame/index.html",
     "origin": {
         "name": "Chat",
         "url": "images/cahtbot.png"
