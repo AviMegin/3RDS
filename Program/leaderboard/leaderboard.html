@@ -14,7 +14,14 @@
 <body>
 
     <h1>The Cloud Leaderboard</h1>
+    <button class="Edit" id="add-test">Add Person</button>
+    <div class="form-wrapper hidden">
 
+        <input class="form-control" type="text" id="test-name" placeholder="Name...">
+
+        <input class="form-control" type="text" id="test-result" placeholder="Points...">
+        <button class="Edit" id="create-test">Add</button>
+    </div>
     <div> <input id="search-input" class="search" type="text" placeholder="Search..."></div>
     <table class="table">
 
@@ -30,7 +37,39 @@
     </table>
 
     <script>
-        //le data
+        var newId = 4
+        var newTest = {
+            'name': null,
+            'id': newId,
+            'result': null
+        }
+        $('#add-test').on('click', function() {
+            $('.form-wrapper').removeClass('hidden')
+        })
+
+
+        $('#test-result').on('keyup', function() {
+            newTest.result = $(this).val()
+            console.log(newTest)
+
+        })
+
+        $('#test-name').on('change', function() {
+            newTest.name = $(this).val()
+            console.log(newTest)
+        })
+
+        $('#create-test').on('click', function() {
+                if (newTest.name == null) {
+                    alert('no input')
+                } else {
+                    buildTable(newTest)
+                    $('#test-name').val('')
+                    $('#test-result').val('')
+                    $('.form-wrapper').addClass('hidden')
+                }
+            })
+            //le data
         var myArray = [{
             "name": "Mickey Mouse",
             "points": 10,
@@ -173,12 +212,12 @@
             var counter = 1;
             table.innerHTML = ''
             for (var i = 0; i < data.length; i++) {
-                var row = `<tr>
+                var row = `<tr scope="row" class="test-row-${data[i].id}">
                                     <td>${counter}</td>
                                     <td>${data[i].name}</td>
                                     <td>${data[i].points}</td>
                                     <td>
-                                        <button class="delete" data-testid="${data[i].id}" id="delete-${data[i].id}">Delete</button>
+                                        <button onclick="deleteTest()"class="delete" data-testid="${data[i].id}" id="delete-${data[i].id}">Delete</button>
                                         <button class="Edit" data-testid="${data[i].id}"  id="edit-${data[i].id}">Edit</button>
                                         
                                         </td>
@@ -187,20 +226,22 @@
                 counter++;
 
 
+
+
+
             }
+
+
         }
 
         function edit() {
-            var testid = $(this).data('testid')
-
-            var deleteBtn = $('#delete-${data[i].id}')
-            var editBtn = $('#edit-${data[i].id}')
 
         }
 
         function deleteTest() {
-
-
+            var row = $(`.test-row-${data[i].id}`)
+            row.remove()
+            console.log(testid);
         }
     </script>
 </body>

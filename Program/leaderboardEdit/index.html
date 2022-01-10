@@ -182,6 +182,9 @@
             "points": 26,
             "id": 20
         }]
+
+
+
         $('th').on('click', function() {
             var column = $(this).data('column')
             var order = $(this).data('order')
@@ -207,11 +210,11 @@
                 var value = $(this).val()
                 console.log(value) //console logging everything in input
 
-                var data = searchTable(value, myArray)
+                var data = searchTable(value, tests)
 
 
 
-                buildTable(data)
+                addRow(data)
             })
             //search function
 
@@ -263,6 +266,7 @@
         function editResult() {
             var testid = $(this).data('testid')
             var value = $(this).html()
+
 
             $(this).unbind()
             $(this).html(`<input class="result form-control" data-testid="${testid}" type="text" value="${value}">`)
@@ -327,6 +331,7 @@
         function confirmDeletion() {
             var testid = $(this).data('testid')
             var row = $(`.test-row-${testid}`)
+            console.log(testid);
             row.remove()
 
         }
