@@ -13,30 +13,37 @@
 
 <body>
 
-    <h1>The Cloud Leaderboard</h1>
-    <div class="box">
-        <button class="Edit" id="add-test">Add Person</button>
-        <div class="form-wrapper hidden">
+    <div class="everything">
 
-            <input class="input" type="text" id="test-name" placeholder="Name...">
+        <h1 id="demotext"> The Leaderboard</h1>
 
-            <input class="input" type="text" id="test-result" placeholder="Points...">
-            <button class="Edit" id="create-test">Add</button>
+
+
+        <div class="box">
+            <button class="Edit" id="add-test">Add Person</button>
+            <div class="form-wrapper hidden">
+
+                <input class="input" type="text" id="test-name" placeholder="Name...">
+
+                <input class="input" type="text" id="test-result" placeholder="Points...">
+                <button class="Edit" id="create-test">Add</button>
+            </div>
         </div>
+        <div> <input id="search-input" class="search" type="text" placeholder="Search..."></div>
+        <table class="table">
+
+            <tr class="content">
+                <th data-column="rank" data-order="desc">Rank &#9650</th>
+                <th data-column="name" data-order="desc">Name &#9650</th>
+                <th data-column="points" data-order="desc">Points &#9650</th>
+            </tr>
+
+            <tbody id="myTable">
+
+            </tbody>
+        </table>
+        <p>Made by <a href="">Megin van Herk</a> </p>
     </div>
-    <div> <input id="search-input" class="search" type="text" placeholder="Search..."></div>
-    <table class="table">
-
-        <tr class="content">
-            <th data-column="rank" data-order="desc">Rank &#9650</th>
-            <th data-column="name" data-order="desc">Name &#9650</th>
-            <th data-column="points" data-order="desc">Points &#9650</th>
-        </tr>
-
-        <tbody id="myTable">
-
-        </tbody>
-    </table>
 
     <script src="leaderboard.js">
     </script>
