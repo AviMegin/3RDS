@@ -12,7 +12,7 @@
 
 
    $('#test-result').on('keyup', function() {
-       newUser.result = $(this).val()
+       newUser.points = $(this).val()
        console.log(newUser)
 
    })
@@ -33,6 +33,7 @@
                $('#test-name').val('')
                $('#test-result').val('')
                addUser(newUser)
+
                $('.form-wrapper').addClass('hidden')
            }
        })
@@ -149,7 +150,7 @@
        return filterData
    }
 
-
+   //add single new user
    function addUser(newUser) {
        var table = document.getElementById('myTable')
        var counter = 21
@@ -170,7 +171,7 @@
 
    buildTable(myArray)
 
-
+   //build the entire table
    function buildTable(data) {
        var table = document.getElementById('myTable')
        var counter = 1;
@@ -178,14 +179,15 @@
        for (var i = 0; i < data.length; i++) {
            var row = `<tr class="row-${counter}" id="row">
                            <td>${counter}</td>
-                           <td>${data[i].name}</td>
-                           <td>${data[i].points}</td>
+                           <td id="result-${counter}">${data[i].name}</td>
+                           <td id="result-${counter}">${data[i].points}</td>
                            <td>
                                <button onclick="deleteTest(${counter})" class="delete delete-${counter}">Delete</button>
-                               <button onclick="edit(${counter})" class="Edit edit-${counter}">Edit</button>
+                               <button onclick="edit(${counter})" class="Edit edit-${counter}" disabled>Save</button>
                                
                                </td>
                      </tr>`
+               //    
            table.innerHTML += row
            counter++;
 
@@ -196,20 +198,24 @@
        }
 
 
+
    }
+
+   //edit
+
 
    function edit(number) {
        var row = number
        console.log(row);
-       var editBtn = $(`#edit-${row}`)
+       var editBtn = $(`.row-${row}`)
        editBtn.addClass('hidden')
 
    }
-
+   //delete row
    function deleteTest(number) {
        var row = number
-       var line = $(`.row-${row}`)
-       var deleteBtn = $(`#delete-${row}`)
+
+       var deleteBtn = $(`.row-${row}`)
            // cancelBtn.removeClass('hidden')
        deleteBtn.addClass('hidden')
        console.log(row);
