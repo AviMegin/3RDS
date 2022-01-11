@@ -14,13 +14,15 @@
 <body>
 
     <h1>The Cloud Leaderboard</h1>
-    <button class="Edit" id="add-test">Add Person</button>
-    <div class="form-wrapper hidden">
+    <div class="box">
+        <button class="Edit" id="add-test">Add Person</button>
+        <div class="form-wrapper hidden">
 
-        <input class="form-control" type="text" id="test-name" placeholder="Name...">
+            <input class="input" type="text" id="test-name" placeholder="Name...">
 
-        <input class="form-control" type="text" id="test-result" placeholder="Points...">
-        <button class="Edit" id="create-test">Add</button>
+            <input class="input" type="text" id="test-result" placeholder="Points...">
+            <button class="Edit" id="create-test">Add</button>
+        </div>
     </div>
     <div> <input id="search-input" class="search" type="text" placeholder="Search..."></div>
     <table class="table">
@@ -37,11 +39,13 @@
     </table>
 
     <script>
+        //adding new user
         var newId = 4
-        var newTest = {
+            //json for new user
+        var newUser = {
             'name': null,
             'id': newId,
-            'result': null
+            'points': null
         }
         $('#add-test').on('click', function() {
             $('.form-wrapper').removeClass('hidden')
@@ -49,26 +53,27 @@
 
 
         $('#test-result').on('keyup', function() {
-            newTest.result = $(this).val()
-            console.log(newTest)
+            newUser.result = $(this).val()
+            console.log(newUser)
 
         })
 
         $('#test-name').on('change', function() {
-            newTest.name = $(this).val()
-            console.log(newTest)
+            newUser.name = $(this).val()
+            console.log(newUser)
         })
 
         $('#create-test').on('click', function() {
-                if (newTest.name == null) {
+                if (newUser.name == null) {
                     alert('no input')
                 } else {
                     myArray.push({
-                        newTest
+                        newUser
                     });
-                    console.log(newTest)
+                    console.log(newUser)
                     $('#test-name').val('')
                     $('#test-result').val('')
+                    addUser(newUser)
                     $('.form-wrapper').addClass('hidden')
                 }
             })
@@ -186,6 +191,24 @@
         }
 
 
+        function addUser(newUser) {
+            var table = document.getElementById('myTable')
+            var counter = 21
+            var row = `<tr class="row-${counter}" id="row">
+                                    <td>${counter}</td>
+                                    <td>${newUser.name}</td>
+                                    <td>${newUser.points}</td>
+                                    <td>
+                                        <button onclick="deleteTest(${counter})" class="delete delete-${counter}">Delete</button>
+                                        <button onclick="edit(${counter})" class="Edit edit-${counter}">Edit</button>
+                                        
+                                        </td>
+                              </tr>`
+            table.innerHTML += row
+            counter++;
+
+        }
+
         buildTable(myArray)
 
 
@@ -199,8 +222,8 @@
                                     <td>${data[i].name}</td>
                                     <td>${data[i].points}</td>
                                     <td>
-                                        <button onclick="deleteTest(${counter})" class="delete">Delete</button>
-                                        <button onclick="deleteTest(${counter})" class="Edit">Edit</button>
+                                        <button onclick="deleteTest(${counter})" class="delete delete-${counter}">Delete</button>
+                                        <button onclick="edit(${counter})" class="Edit edit-${counter}">Edit</button>
                                         
                                         </td>
                               </tr>`
@@ -216,14 +239,20 @@
 
         }
 
-        function edit() {
+        function edit(number) {
             var row = number
             console.log(row);
+            var editBtn = $(`#edit-${row}`)
+            editBtn.addClass('hidden')
 
         }
 
         function deleteTest(number) {
             var row = number
+            var line = $(`.row-${row}`)
+            var deleteBtn = $(`#delete-${row}`)
+                // cancelBtn.removeClass('hidden')
+            deleteBtn.addClass('hidden')
             console.log(row);
         }
     </script>
