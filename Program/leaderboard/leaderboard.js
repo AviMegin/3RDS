@@ -1,29 +1,29 @@
 //fetching the data
 
-// async function Users() {
-//     let response = await fetch('https://i430712.hera.fhict.nl/Program/leaderboard/api/post.php')
-//     let users = await response.json()
-//     console.log(users)
-//     return users
-// }
-
-// var myArray = Users()
-// console.log(myArray)
-var myArray = ""
-
-
-fetch("https://i430712.hera.fhict.nl/Program/leaderboard/api/post.php").then(
-    function(u) { return u.json(); }
-).then(
-    function(json) {
-        data_function(json); //calling and passing json to another function data_function
-    }
-)
-
-//another functions
-function data_function(data) {
-    buildTable(data)
+async function Users() {
+    let response = await fetch('https://i430712.hera.fhict.nl/Program/leaderboard/api/post.php')
+    let users = await response.json()
+    localStorage.setItem("quentinTarantino", JSON.stringify(users));
+    return users
 }
+
+var retrievedData = localStorage.getItem("quentinTarantino");
+var myArray = JSON.parse(retrievedData);
+// var myArray = ""
+
+
+// fetch("https://i430712.hera.fhict.nl/Program/leaderboard/api/post.php").then(
+//     function(u) { return u.json(); }
+// ).then(
+//     function(json) {
+//         data_function(json); //calling and passing json to another function data_function
+//     }
+// )
+
+// //another functions
+// function data_function(data) {
+//     buildTable(data)
+// }
 
 
 //adding new user
