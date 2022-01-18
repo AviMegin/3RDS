@@ -167,34 +167,23 @@ function data_function(data) {
                 //    
             table.innerHTML += row
             counter++;
-
-
-
-
-
         }
-
-
-
     }
+}
+//edit
+function edit(number) {
+    var row = number
+    console.log(row);
+    var editBtn = $(`.row-${row}`)
+    editBtn.addClass('hidden')
 
-    //edit
+}
+//delete row
+function deleteTest(number) {
+    var row = number
 
-
-    function edit(number) {
-        var row = number
-        console.log(row);
-        var editBtn = $(`.row-${row}`)
-        editBtn.addClass('hidden')
-
-    }
-    //delete row
-    function deleteTest(number) {
-        var row = number
-
-        var deleteBtn = $(`.row-${row}`)
-            // cancelBtn.removeClass('hidden')
-        deleteBtn.addClass('hidden')
-        console.log(row);
-    }
+    var deleteBtn = $(`.row-${row}`)
+        // cancelBtn.removeClass('hidden')
+    deleteBtn.addClass('hidden')
+    console.log(row);
 }
