@@ -133,8 +133,8 @@ function data_function(data) {
         var counter = 21
         var row = `<tr class="row-${counter}" id="row">
                            <td>${counter}</td>
-                           <td>${newUser.name}</td>
-                           <td>${newUser.points}</td>
+                           <td contenteditable="true">${newUser.name}</td>
+                           <td contenteditable="true">${newUser.points}</td>
                            <td>
                                <button onclick="deleteTest(${counter})" class="delete delete-${counter}">Delete</button>
                                <button onclick="edit(${counter})" class="Edit edit-${counter}">Edit</button>
@@ -156,8 +156,8 @@ function data_function(data) {
         for (var i = 0; i < data.length; i++) {
             var row = `<tr class="row-${counter}" id="row">
                            <td>${counter}</td>
-                           <td id="result-${counter}">${data[i].name}</td>
-                           <td id="result-${counter}">${data[i].points}</td>
+                           <td contenteditable="true" id="result-${counter}">${data[i].name}</td>
+                           <td contenteditable="true" id="result-${counter}">${data[i].points}</td>
                            <td>
                                <button onclick="deleteTest(${counter})" class="delete delete-${counter}">Delete</button>
                                <button onclick="edit(${counter})" class="Edit edit-${counter}" disabled>Save</button>
